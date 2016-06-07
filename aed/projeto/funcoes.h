@@ -1,6 +1,7 @@
 #define TOTALFUNCIONARIOS 100
 #define TOTALCLIENTES 1000
 #define TOTALPRONTUARIOS 1000000
+
 void inicializarFunc(listafunc *l) {
 	l->n = 0;
 }

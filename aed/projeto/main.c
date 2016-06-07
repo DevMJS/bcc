@@ -2,32 +2,7 @@
 #include <stdlib.h>
 #include "estruturaseconstantes.h"
 #include "funcoes.h"
-/*#define MAX 50 //Quantidade máxima de elementos
 
-typedef int tipo_elemento; //Definição do tipo de dado dos elementos
-typedef struct {
-	tipo_elemento dados[MAX]; // Matriz que contém os elementos
-	int n; //Número de elementos
-
-} lista;
-
-void inicializar(lista *l);//IMPLEMENTADO
-int vazia(lista *l);//IMPLEMENTADO
-int cheia(lista *l);//IMPLEMENTADO
-int tamanho(lista *l);//IMPLEMENTADO
-int carregar(lista *l, int pos, tipo_elemento *dado);//IMPLEMENTADO
-int inserir_fim(lista *l, tipo_elemento dado);//IMPLEMENTADO
-int inserir_posicao(lista *l, tipo_elemento dado, int pos);//IMPLEMENTADO
-//Remove o elemento no fim da lista
-int remover_fim(lista *l);//IMPLEMENTADO
-//Remove o elemento na posição pos, caso esta seja válida
-//É preciso mover os elementos a esquerda para não deixar "buracos"
-int remover_posicao(lista *l, int pos);//IMPLEMENTADO
-//Retorna a posição do elemento dado, caso ele não pertença a lista, retorna -1
-int procurar_elemento(lista *l, tipo_elemento dado);
-void exibir_elementos(lista *l);*/
-
-/*########################################################################################################*/
 int main(int argc, char* argv[]) {
 	int opcao = 1;
 	listafunc matriz;
