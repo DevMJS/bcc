@@ -1,3 +1,4 @@
+#include "funcoesauxiliares.h"
 #define TOTALFUNCIONARIOS 100
 #define TOTALCLIENTES 1000
 #define TOTALPRONTUARIOS 1000000
@@ -208,16 +209,7 @@ int procurarElementoFunc(listafunc *l, funcionario dado) {
 	int i;
 	if(l->n > 0) {
 		for(i = 0; i < l->n; i++) {
-			int j;
-			int igual = 0;
-			for(j = 0; j < 11; j++){
-				if(l->dados[i].cpf[j] == dado.cpf[j]) {
-					//resultado = i + 1;//Não existe posicão zero, pois não se pede o indice da matriz como paramentro, mas a posição do elemento na matriz
-					igual++;
-					//break;
-				}
-			}
-			if(igual == 12) {
+			if(compararStrings(l->dados[i].cpf, dado.cpf, 11)) {
 					resultado = i + 1;
 					break;
 			}
@@ -230,16 +222,7 @@ int procurarElementoCliente(listacliente *l, cliente dado) {
 	int i;
 	if(l->n > 0) {
 		for(i = 0; i < l->n; i++) {
-			int j;
-			int igual = 0;
-			for(j = 0; j < 11; j++){
-				if(l->dados[i].cpf[j] == dado.cpf[j]) {
-					//resultado = i + 1;//Não existe posicão zero, pois não se pede o indice da matriz como paramentro, mas a posição do elemento na matriz
-					igual++;
-					//break;
-				}
-			}
-			if(igual == 12) {
+			if(compararStrings(l->dados[i].cpf, dado.cpf, 11)) {
 					resultado = i + 1;
 					break;
 			}
@@ -277,10 +260,10 @@ void exibirElementosFunc(listafunc *l) {
 		for(i = 0; i < l->n; i++) {
 			if(i < 9){
 				//printf("\t|                           %d | %d\n", (i + 1), l->dados[i]);
-				printf("\t|%-27d | %d\n", (i + 1), l->dados[i].nivelAcesso);
+				printf("\t|%28d | %d\n", (i + 1), l->dados[i].nivelAcesso);
 			} else {
 				//printf("\t|                          %d | %d\n", (i + 1), l->dados[i]);
-				printf("\t|%-27d | %d\n", (i + 1), l->dados[i].nivelAcesso);
+				printf("\t|%27d | %d\n", (i + 1), l->dados[i].nivelAcesso);
 			}
 		}
 	} else {
