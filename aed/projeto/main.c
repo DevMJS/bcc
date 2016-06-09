@@ -1,56 +1,84 @@
 #include <stdio.h>
 #include <stdlib.h>
-<<<<<<< HEAD
-//#include "functionsforinterfaces.h"
-#include "menugmed.h"
-
-int main(int argc, char *argv[]){
-
-	int mod = 1;
-	
-	system("clear");
-
-	while(mod != 0){
-=======
-#include <string.h>
 #include "estruturaseconstantes.h"
 #include "funcoes.h"
-#include "funcoesdeinterfaces.h"
+/*#define MAX 50 //Quantidade máxima de elementos
 
+typedef int tipo_elemento; //Definição do tipo de dado dos elementos
+typedef struct {
+	tipo_elemento dados[MAX]; // Matriz que contém os elementos
+	int n; //Número de elementos
+
+} lista;
+
+void inicializar(lista *l);//IMPLEMENTADO
+int vazia(lista *l);//IMPLEMENTADO
+int cheia(lista *l);//IMPLEMENTADO
+int tamanho(lista *l);//IMPLEMENTADO
+int carregar(lista *l, int pos, tipo_elemento *dado);//IMPLEMENTADO
+int inserir_fim(lista *l, tipo_elemento dado);//IMPLEMENTADO
+int inserir_posicao(lista *l, tipo_elemento dado, int pos);//IMPLEMENTADO
+//Remove o elemento no fim da lista
+int remover_fim(lista *l);//IMPLEMENTADO
+//Remove o elemento na posição pos, caso esta seja válida
+//É preciso mover os elementos a esquerda para não deixar "buracos"
+int remover_posicao(lista *l, int pos);//IMPLEMENTADO
+//Retorna a posição do elemento dado, caso ele não pertença a lista, retorna -1
+int procurar_elemento(lista *l, tipo_elemento dado);
+void exibir_elementos(lista *l);*/
+
+/*########################################################################################################*/
 int main(int argc, char* argv[]) {
 	int opcao = 1;
 	listafunc matriz;
 	funcionario elemento;
 	int posicao;
->>>>>>> origin/master
 	
-     
-		switch(mod) {
-			case 0:
-				leave(&mod);
-				break;
+	while(opcao != 0) {
+		switch(opcao) {
 			case 1:
-<<<<<<< HEAD
-				mod = showMenu("textforinterfaces/menumain.txt");
-=======
-				opcao = exibirMenu();
->>>>>>> origin/master
+				system("clear");
+				printf("\t--------------------- LISTA DE INTEIROS -----------------------\n\n\n");
+				printf("\t -------------------------------------------------------------\n");
+				printf("\t|*Inicializar lista -------------------> Digite 2             |\n");
+				printf("\t|*Verificar se a lista esta vazia -----> Digite 3             |\n");
+				printf("\t|*Verificar se a lista esta cheia -----> Digite 4             |\n");
+				printf("\t|*Verificar o tamanho da lista --------> Digite 5             |\n");
+				printf("\t|*Carregar um elemento da lista -------> Digite 6             |\n");
+				printf("\t|*Inserir elemento no fim da lista ----> Digite 7             |\n");
+				printf("\t|*Inserir elemento na posicao ---------> Digite 8             |\n");
+				printf("\t|*Remover elemento do fim da lista ----> Digite 9             |\n");
+				printf("\t|*Remover elemento na posicao ---------> Digite 10            |\n");
+				printf("\t|*Procurar elemento -------------------> Digite 11            |\n");
+				printf("\t|*Exibir elementos da lista -----------> Digite 12            |\n");
+				printf("\t|                                                             |\n");
+				printf("\t|*Sair --------------------------------> Digite 0             |\n");
+				printf("\t|                                                             |\n");
+				printf("\t|                   [Tecle para continuar!]                   |\n");
+				printf("\t -------------------------------------------------------------\n");
+				printf("\t|Opcao:");
+				scanf("%d", &opcao);
+				getchar();
 				break;
-				    
 			case 2:
-				ShowMsgAlert("textforinterfaces/alertconstruct.txt");
-				mod = 1;
+				inicializarFunc(&matriz);
+				system("clear");
+				printf("\n\n\t|                     Lista inicializada!                     |");
+				opcao = 1;
+				getchar();
 				break;
-				    
+	
 			case 3:
-				startGmed(&mod);
+				system("clear");
+				if(vaziaFunc(&matriz)) {
+					printf("\n\n\t|                         Lista vazia!                        |");
+				} else {
+					printf("\n\n\t|                   A lista nao esta vazia!                   |");
+				}
+				opcao = 1;
+				getchar();
 				break;
-
 			case 4:
-<<<<<<< HEAD
-				ShowMsgAlert("textforinterfaces/alertconstruct.txt");
-				mod = 1;
-=======
 				system("clear");
 				if(cheiaFunc(&matriz)) {
 					printf("\n\n\t|                         Lista cheia!                        |");
@@ -84,9 +112,8 @@ int main(int argc, char* argv[]) {
 			case 7:
 				system("clear");
 				printf("\n\n\t|     Informe o elemento que sera inserido no fim da lista: ");
-				fgets(elemento.cpf, 12, stdin);
-				limparBuffer();
-				//getchar();
+				scanf("%c", &elemento.cpf);
+				getchar();
 				if(inserirFimFunc(&matriz, elemento)) {
 					printf("\n\n\t|                     Elemento inserido!                      |");
 				} else {
@@ -98,9 +125,8 @@ int main(int argc, char* argv[]) {
 			case 8:
 				system("clear");
 				printf("\n\n\t|     Informe o elemento a ser inserido: ");
-				fgets(elemento.cpf, 12, stdin);
-				limparBuffer();
-				//getchar();
+				scanf("%d", &elemento.cpf);
+				getchar();
 				printf("\t|     Informe a posicao em que o elemento sera inserido: ");
 				scanf("%d", &posicao);
 				getchar();
@@ -145,9 +171,8 @@ int main(int argc, char* argv[]) {
 			case 11:
 				system("clear");
 				printf("\n\n\t|     Informe o elemento a ser encontrado: ");
-				fgets(elemento.cpf, 12, stdin);
-				limparBuffer();
-				//getchar();
+				scanf("%d", &elemento.cpf);
+				getchar();
 				if(procurarElementoFunc(&matriz, elemento) == -1) {
 					printf("\n\n\t|                   Elemento nao encontrado!                  |");
 				} else {
@@ -161,16 +186,15 @@ int main(int argc, char* argv[]) {
 				exibirElementosFunc(&matriz);
 				opcao = 1;
 				getchar();
->>>>>>> origin/master
 				break;
-
 			default:
-				ShowMsgAlert("Entrada invalida tente denovo!");
-				mod = 1;
+				system("clear");
+				printf("\n\n\t|                       Opcao invalida!                       |");
+				opcao = 1;
+				getchar();
 				break;
 		}
-
-		system("clear");
-
 	}
+	system("clear");
+	return 0;
 }
