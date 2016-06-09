@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 <<<<<<< HEAD
+<<<<<<< HEAD
 //#include "functionsforinterfaces.h"
 #include "menugmed.h"
 
@@ -17,6 +18,13 @@ int main(int argc, char *argv[]){
 #include "funcoes.h"
 #include "funcoesdeinterfaces.h"
 
+=======
+#include <string.h>
+#include "estruturaseconstantes.h"
+#include "funcoes.h"
+#include "funcoesdeinterfaces.h"
+
+>>>>>>> bca1297a05905ddcbbadcbfdd9e4875efbc53431
 int main(int argc, char* argv[]) {
 	int opcao = 1;
 	listafunc matriz;
@@ -31,10 +39,14 @@ int main(int argc, char* argv[]) {
 				break;
 			case 1:
 <<<<<<< HEAD
+<<<<<<< HEAD
 				mod = showMenu("textforinterfaces/menumain.txt");
 =======
 				opcao = exibirMenu();
 >>>>>>> origin/master
+=======
+				opcao = exibirMenu();
+>>>>>>> bca1297a05905ddcbbadcbfdd9e4875efbc53431
 				break;
 				    
 			case 2:
