@@ -1,56 +1,55 @@
 #include <stdio.h>
 #include <stdlib.h>
-<<<<<<< HEAD
-//#include "functionsforinterfaces.h"
-#include "menugmed.h"
-
-int main(int argc, char *argv[]){
-
-	int mod = 1;
-	
-	system("clear");
-
-	while(mod != 0){
-=======
 #include <string.h>
-#include "estruturaseconstantes.h"
-#include "funcoes.h"
-#include "funcoesdeinterfaces.h"
+#include "estrutctsandconstants.h"
+#include "mainfunctions/functionsforprofessionals.h"
+#include "functionsforinterfaces.h"
 
-int main(int argc, char* argv[]) {
+/*int main(int argc, char* argv[]) {*/
+int startGmed(int* mod) {
+ int sucess = 0;
 	int opcao = 1;
 	listafunc matriz;
 	funcionario elemento;
 	int posicao;
->>>>>>> origin/master
 	
-     
-		switch(mod) {
-			case 0:
-				leave(&mod);
-				break;
+	while(opcao != 0) {
+		switch(opcao) {
+		 	case -1:
+		  		leave(mod);
+		  		back(&opcao);
+		  		sucess = 1;
+		  		break;
+		  
+		 	case 0:
+		  		back(&opcao);
+		  		sucess = 1;
+		  		break;
+		  
 			case 1:
-<<<<<<< HEAD
-				mod = showMenu("textforinterfaces/menumain.txt");
-=======
-				opcao = exibirMenu();
->>>>>>> origin/master
+				opcao = showMenu("textforinterfaces/menugmed.txt");
 				break;
-				    
+				
 			case 2:
-				ShowMsgAlert("textforinterfaces/alertconstruct.txt");
-				mod = 1;
+				inicializarFunc(&matriz);
+				system("clear");
+				printf("\n\n\t|                     Lista inicializada!                     |");
+				opcao = 1;
+				getchar();
 				break;
-				    
+	
 			case 3:
-				startGmed(&mod);
+				system("clear");
+				if(vaziaFunc(&matriz)) {
+					printf("\n\n\t|                         Lista vazia!                        |");
+				} else {
+					printf("\n\n\t|                   A lista nao esta vazia!                   |");
+				}
+				opcao = 1;
+				getchar();
 				break;
-
+				
 			case 4:
-<<<<<<< HEAD
-				ShowMsgAlert("textforinterfaces/alertconstruct.txt");
-				mod = 1;
-=======
 				system("clear");
 				if(cheiaFunc(&matriz)) {
 					printf("\n\n\t|                         Lista cheia!                        |");
@@ -60,12 +59,14 @@ int main(int argc, char* argv[]) {
 					opcao = 1;
 				getchar();
 				break;
+				
 			case 5:
 				system("clear");
 				printf("\n\n\t|                         Tamanho = %d                        |", tamanhoFunc(&matriz));
 				opcao = 1;
 				getchar();
 				break;
+				
 			case 6:
 				system("clear");
 				printf("\n\n\t|     Selecione a posicao do elemento para carregar: ");
@@ -81,11 +82,12 @@ int main(int argc, char* argv[]) {
 				opcao = 1;
 				getchar();
 				break;
+				
 			case 7:
 				system("clear");
 				printf("\n\n\t|     Informe o elemento que sera inserido no fim da lista: ");
 				fgets(elemento.cpf, 12, stdin);
-				limparBuffer();
+				clearBuffer();
 				//getchar();
 				if(inserirFimFunc(&matriz, elemento)) {
 					printf("\n\n\t|                     Elemento inserido!                      |");
@@ -95,11 +97,12 @@ int main(int argc, char* argv[]) {
 				opcao = 1;
 				getchar();
 				break;
+				
 			case 8:
 				system("clear");
 				printf("\n\n\t|     Informe o elemento a ser inserido: ");
 				fgets(elemento.cpf, 12, stdin);
-				limparBuffer();
+				clearBuffer();
 				//getchar();
 				printf("\t|     Informe a posicao em que o elemento sera inserido: ");
 				scanf("%d", &posicao);
@@ -118,6 +121,7 @@ int main(int argc, char* argv[]) {
 				opcao = 1;
 				getchar();
 				break;
+				
 			case 9:
 				system("clear");
 				if(removerFimFunc(&matriz)) {
@@ -128,6 +132,7 @@ int main(int argc, char* argv[]) {
 				opcao = 1;
 				getchar();
 				break;
+				
 			case 10:
 				system("clear");
 				printf("\n\n\t|     Informe a posicao do elemento a ser removido: ");
@@ -142,11 +147,12 @@ int main(int argc, char* argv[]) {
 				opcao = 1;
 				getchar();
 				break;
+				
 			case 11:
 				system("clear");
 				printf("\n\n\t|     Informe o elemento a ser encontrado: ");
 				fgets(elemento.cpf, 12, stdin);
-				limparBuffer();
+				clearBuffer();
 				//getchar();
 				if(procurarElementoFunc(&matriz, elemento) == -1) {
 					printf("\n\n\t|                   Elemento nao encontrado!                  |");
@@ -156,21 +162,19 @@ int main(int argc, char* argv[]) {
 				opcao = 1;
 				getchar();
 				break;
+				
 			case 12:
 				system("clear");
 				exibirElementosFunc(&matriz);
 				opcao = 1;
 				getchar();
->>>>>>> origin/master
 				break;
-
 			default:
 				ShowMsgAlert("Entrada invalida tente denovo!");
-				mod = 1;
+				opcao = 1;
 				break;
 		}
-
-		system("clear");
-
 	}
+	system("clear");
+	return 0;
 }
